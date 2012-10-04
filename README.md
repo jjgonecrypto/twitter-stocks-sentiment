@@ -1,2 +1,0 @@
-twitter-stocks-sentiment
-========================
