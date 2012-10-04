@@ -10,3 +10,9 @@ instructions
 1. `node server &` to run the server in the background (bash)
 
 1. `open http://localhost:3001` to open site in new browser (bash)
+
+
+links
+----
+
+* twitter search api: [https://dev.twitter.com/docs/using-search](https://dev.twitter.com/docs/using-search)
