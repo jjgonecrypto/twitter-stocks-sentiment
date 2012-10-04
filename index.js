@@ -1,4 +1,3 @@
-
 var exports, makeUri, run, county;
 
 makeUri = function(query, supplement) {
@@ -44,4 +43,12 @@ run = function(stock, done) {
   });
 };
 
+$(function() {
+  $('.stock-input').on("keypress", function(evt) {
+    if (evt.charCode !== 13) return;
 
+    run($(this).val(), function(result) {
+      console.log(result);
+    });    
+  });
+});

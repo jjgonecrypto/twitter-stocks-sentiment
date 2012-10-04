@@ -1,0 +1,12 @@
+{
+    "name":         "twitter-stocks-sentiment"
+  , "description":  "simple html5 that monitors equity market sentiments on twitter"
+  , "version":      "0.0.1"
+  , "engines": {
+      "node"        : "0.8.x"
+    , "npm"         : "1.1.4x"
+    }
+  , "dependencies": {
+    "connect"       : "*" 
+  }
+}
