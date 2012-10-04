@@ -1,8 +1,6 @@
-var makeUri, run, county;
+var twitter = require('./lib/twitter');
 
-makeUri = function(query, supplement) {
-  return "http://search.twitter.com/search.json?rpp=100&q=" + query + "%20AND%20" + supplement;
-};
+var run, county;
 
 county = function(array) {
   var i = 0;
@@ -17,7 +15,7 @@ run = function(stock, done) {
   var negative, positive, trimToJson;
   positive = ["buy", "long", "bullish"];
   negative = ["sell", "short", "bearish"];
-  uri = makeUri("$" + stock, positive.join("%20OR%20"));
+  uri = twitter.makeUri("$" + stock, positive.join("%20OR%20"));
 
   return $.ajax({
     url: uri,
@@ -26,7 +24,7 @@ run = function(stock, done) {
   }).done(function(pdata) {
 
     return $.ajax({
-      url: makeUri("$" + stock, negative.join("%20OR%20")),
+      url: twitter.makeUri("$" + stock, negative.join("%20OR%20")),
       type: "GET",
       dataType: "jsonp"
     }).done(function(ndata) {
