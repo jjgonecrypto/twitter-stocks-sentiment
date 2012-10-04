@@ -1,4 +1,4 @@
-var exports, makeUri, run, county;
+var makeUri, run, county;
 
 makeUri = function(query, supplement) {
   return "http://search.twitter.com/search.json?rpp=100&q=" + query + "%20AND%20" + supplement;
@@ -47,8 +47,16 @@ $(function() {
   $('.stock-input').on("keypress", function(evt) {
     if (evt.charCode !== 13) return;
 
+    $('.loader').show();
+    $results = $('#results').hide();
+
     run($(this).val(), function(result) {
       console.log(result);
+      $('.loader').hide();
+      $results.find('.stock').html(result.stock);
+      $results.find('.positive').html(result.pcount);
+      $results.find('.negative').html(result.ncount);
+      $results.show().removeClass("loading");
     });    
   });
 });
